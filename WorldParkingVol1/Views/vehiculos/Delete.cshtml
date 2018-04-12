@@ -1,0 +1,64 @@
+﻿@model WorldParkingVol1.Models.vehiculos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Master_Vehiculos_Layout1.cshtml";
+}
+
+<h2>Eliminar Registro de Vehiculo</h2>
+<hr />
+<h3>Esta Seguro de Eliminar Este Registro?</h3>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colorvehiculo.ColorVehiculo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colorvehiculo.ColorVehiculo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marcasvehiculo.MarcasVehiculo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marcasvehiculo.MarcasVehiculo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipovehiculo1.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipovehiculo1.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a Vehiculos", "Index")
+        </div>
+    }
+</div>

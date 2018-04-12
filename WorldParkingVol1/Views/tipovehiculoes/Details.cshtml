@@ -1,0 +1,43 @@
+﻿@model WorldParkingVol1.Models.tipovehiculo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MasterTarifas_Layout1.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.taifaperiodica.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taifaperiodica.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarifasminuto.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarifasminuto.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idTipoVehiculo }) |
+    @Html.ActionLink("Volver a Lista", "Index")
+</p>

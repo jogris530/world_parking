@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WorldParkingVol1.Models.personas>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master_Layout1.cshtml";
+}
+
+<h2>Lista de Registros</h2>
+<hr />
+<br />
+<p>
+    @Html.ActionLink("Registro Nuevo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roles.DescripcionRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo.Sexo1)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roles.DescripcionRol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexo.Sexo1)
+        </td>
+        <td>
+            @Html.ActionLink("Acualizar", "Edit", new { id=item.idPersonas }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idPersonas }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idPersonas })
+        </td>
+    </tr>
+}
+
+</table>

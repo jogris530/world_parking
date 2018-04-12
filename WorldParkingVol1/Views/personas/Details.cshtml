@@ -1,0 +1,67 @@
+﻿@model WorldParkingVol1.Models.personas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Master_Layout1.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roles.DescripcionRol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roles.DescripcionRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo.Sexo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo.Sexo1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Actualizar", "Edit", new { id = Model.idPersonas }) |
+    @Html.ActionLink("Volver Atras", "Index")
+</p>

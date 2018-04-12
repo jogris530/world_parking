@@ -1,0 +1,75 @@
+﻿@model WorldParkingVol1.Models.facturacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Facturacion_Layout1.cshtml";
+}
+
+<h2>Vista Individual Factura</h2>
+
+<div>
+    <hr />
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_enrtada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_enrtada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_salida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_salida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetalleObservaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetalleObservaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacturaPermanente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacturaPermanente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bahias.idBahias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahias.idBahias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vehiculos.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vehiculos.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personas.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personas.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Salida", "Edit", new { id = Model.NumeroFactura }) |
+    @Html.ActionLink("Volver Atras", "Index")
+</p>

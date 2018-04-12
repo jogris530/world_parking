@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ParkingModelStoreContainer" CdmEntityContainer="ParkingEntities">
+    <EntitySetMapping Name="bahias">
+      <EntityTypeMapping TypeName="ParkingModel.bahias">
+        <MappingFragment StoreEntitySet="bahias">
+          <ScalarProperty Name="idBahias" ColumnName="idBahias" />
+          <ScalarProperty Name="TipoBahia" ColumnName="TipoBahia" />
+          <ScalarProperty Name="EstadoBahia" ColumnName="EstadoBahia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colorvehiculo">
+      <EntityTypeMapping TypeName="ParkingModel.colorvehiculo">
+        <MappingFragment StoreEntitySet="colorvehiculo">
+          <ScalarProperty Name="idColorVehiculo" ColumnName="idColorVehiculo" />
+          <ScalarProperty Name="ColorVehiculo1" ColumnName="ColorVehiculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documentos">
+      <EntityTypeMapping TypeName="ParkingModel.documentos">
+        <MappingFragment StoreEntitySet="documentos">
+          <ScalarProperty Name="idDocumentos" ColumnName="idDocumentos" />
+          <ScalarProperty Name="Persona" ColumnName="Persona" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+          <ScalarProperty Name="NoDocumento" ColumnName="NoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturacion">
+      <EntityTypeMapping TypeName="ParkingModel.facturacion">
+        <MappingFragment StoreEntitySet="facturacion">
+          <ScalarProperty Name="NumeroFactura" ColumnName="NumeroFactura" />
+          <ScalarProperty Name="IdVehiculo" ColumnName="IdVehiculo" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="Fecha_enrtada" ColumnName="Fecha_enrtada" />
+          <ScalarProperty Name="Fecha_salida" ColumnName="Fecha_salida" />
+          <ScalarProperty Name="DetalleObservaciones" ColumnName="DetalleObservaciones" />
+          <ScalarProperty Name="Bahia" ColumnName="Bahia" />
+          <ScalarProperty Name="FacturaPermanente" ColumnName="FacturaPermanente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcasvehiculo">
+      <EntityTypeMapping TypeName="ParkingModel.marcasvehiculo">
+        <MappingFragment StoreEntitySet="marcasvehiculo">
+          <ScalarProperty Name="idMarcasVehiculo" ColumnName="idMarcasVehiculo" />
+          <ScalarProperty Name="MarcasVehiculo1" ColumnName="MarcasVehiculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personas">
+      <EntityTypeMapping TypeName="ParkingModel.personas">
+        <MappingFragment StoreEntitySet="personas">
+          <ScalarProperty Name="idPersonas" ColumnName="idPersonas" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="CodSexo" ColumnName="CodSexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="ParkingModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="DescripcionRol" ColumnName="DescripcionRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sexo">
+      <EntityTypeMapping TypeName="ParkingModel.sexo">
+        <MappingFragment StoreEntitySet="sexo">
+          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+          <ScalarProperty Name="Sexo1" ColumnName="Sexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ParkingModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taifaperiodica">
+      <EntityTypeMapping TypeName="ParkingModel.taifaperiodica">
+        <MappingFragment StoreEntitySet="taifaperiodica">
+          <ScalarProperty Name="idTaifaPeriodica" ColumnName="idTaifaPeriodica" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ValorPleno" ColumnName="ValorPleno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarifasminuto">
+      <EntityTypeMapping TypeName="ParkingModel.tarifasminuto">
+        <MappingFragment StoreEntitySet="tarifasminuto">
+          <ScalarProperty Name="idTarifasMin" ColumnName="idTarifasMin" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ValorMinuto" ColumnName="ValorMinuto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telefonodetalle">
+      <EntityTypeMapping TypeName="ParkingModel.telefonodetalle">
+        <MappingFragment StoreEntitySet="telefonodetalle">
+          <ScalarProperty Name="idTelefonoDetalle" ColumnName="idTelefonoDetalle" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="TipoTelefono" ColumnName="TipoTelefono" />
+          <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipobahia">
+      <EntityTypeMapping TypeName="ParkingModel.tipobahia">
+        <MappingFragment StoreEntitySet="tipobahia">
+          <ScalarProperty Name="idTipoBahia" ColumnName="idTipoBahia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipodocumento">
+      <EntityTypeMapping TypeName="ParkingModel.tipodocumento">
+        <MappingFragment StoreEntitySet="tipodocumento">
+          <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+          <ScalarProperty Name="TipoDocumento1" ColumnName="TipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipotelefono">
+      <EntityTypeMapping TypeName="ParkingModel.tipotelefono">
+        <MappingFragment StoreEntitySet="tipotelefono">
+          <ScalarProperty Name="idTipoTelefono" ColumnName="idTipoTelefono" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipovehiculo">
+      <EntityTypeMapping TypeName="ParkingModel.tipovehiculo">
+        <MappingFragment StoreEntitySet="tipovehiculo">
+          <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Tarifa" ColumnName="Tarifa" />
+          <ScalarProperty Name="TarifaPeriodica" ColumnName="TarifaPeriodica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehiculos">
+      <EntityTypeMapping TypeName="ParkingModel.vehiculos">
+        <MappingFragment StoreEntitySet="vehiculos">
+          <ScalarProperty Name="idVehiculos" ColumnName="idVehiculos" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="TipoVehiculo" ColumnName="TipoVehiculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ParkingModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ParkingModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ParkingModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ParkingModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ParkingModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ParkingModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ParkingModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ParkingModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ParkingModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

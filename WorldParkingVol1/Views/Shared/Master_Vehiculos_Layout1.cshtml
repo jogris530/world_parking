@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="~/scripts/jquery.js">
+    </script>
+    <script type="text/javascript" src="~/scripts/jquery-ui-1.10.4.custom.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var inputs = document.getElementsByTagName('input');
+            for (a = 0; a < inputs.length; a++) {
+                if (inputs[a].type == "checkbox") {
+                    var id = inputs[a].getAttribute("id");
+                    if (id == null) {
+                        id = "checkbox" + a;
+                    }
+                    inputs[a].setAttribute("id", id);
+                    var container = document.createElement('div');
+                    container.setAttribute("class", "ttr_checkbox");
+                    var label = document.createElement('label');
+                    label.setAttribute("for", id);
+                    $(inputs[a]).wrap(container).after(label);
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var inputs = document.getElementsByTagName('input');
+            for (a = 0; a < inputs.length; a++) {
+                if (inputs[a].type == "radio") {
+                    var id = inputs[a].getAttribute("id");
+                    if (id == null) {
+                        id = "radio" + a;
+                    }
+                    inputs[a].setAttribute("id", id);
+                    var container = document.createElement('div');
+                    container.setAttribute("class", "ttr_radio");
+                    var label = document.createElement('label');
+                    label.setAttribute("for", id);
+                    $(inputs[a]).wrap(container).after(label);
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript" src="~/scripts/bootstrap.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var window_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            var body_height = $(document.body).height();
+            $content = $("#ttr_content_and_sidebar_container");
+            if (body_height < window_height) {
+                differ = (window_height - body_height);
+                content_height = $content.height() + differ;
+                $("#ttr_content_and_sidebar_container").css("min-height", content_height + "px");
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#nav-expander').on('click', function (e) {
+                e.preventDefault();
+                $('body').toggleClass('nav-expanded');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('ul.ttr_menu_items.nav li [data-toggle=dropdown]').on('click', function () {
+                var window_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                if (window_width > 1025) {
+                    window.location.href = jQuery(this).attr('href');
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ttr_menu_items ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+                var window_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                if (window_width < 1025) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $(this).parent().siblings().removeClass('open');
+                    $(this).parent().toggleClass(function () {
+                        if ($(this).is(".open")) {
+                            window.location.href = $(this).children("[data-toggle=dropdown]").attr('href');
+                            return "";
+                        } else {
+                            return "open";
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ttr_vmenu_items ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+                var window_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                event.preventDefault();
+                event.stopPropagation();
+                $(this).parent().siblings().removeClass('open');
+                $(this).parent().toggleClass(function () {
+                    if ($(this).is(".open")) {
+                        window.location.href = $(this).children("[data-toggle=dropdown]").attr('href');
+                        return "";
+                    } else {
+                        return "open";
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var objects = ['iframe', 'video', 'object'];
+            for (var i = 0 ; i < objects.length ; i++) {
+                if ($(objects[i]).length > 0) {
+                    $(objects[i]).addClass('embed-responsive-item');
+                    $(objects[i]).parent().addClass('embed-responsive embed-responsive-16by9');
+                    $(".embed-responsive-16by9").css("padding-bottom", "56.25%");
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript" src="~/scripts/height.js">
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Añadir descripción del sitio aquí" />
+    <meta name="keywords" content="palabra clave 1, palabra clave2," />
+    <title>
+        Vehiculos-World Parking
+    </title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" media="screen" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet"  href="menuie.css" type="text/css" media="screen"/>
+    <link rel="stylesheet"  href="vmenuie.css" type="text/css" media="screen"/>
+    <![endif]-->
+    <script type="text/javascript" src="~/scripts/prefixfree.min.js">
+    </script>
+    <script type="text/javascript" src="~/scripts/totop.js">
+    </script>
+    <!--[if IE 7]>
+    <style type="text/css" media="screen">
+    #ttr_vmenu_items  li.ttr_vmenu_items_parent {margin-left:-16px;font-size:0px;}
+    </style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/html5shiv.js">
+    </script>
+    <script type="text/javascript" src="scripts/respond.min.js">
+    </script>
+    <![endif]-->
+</head>
+<body class="Clientes">
+    <a href="#" class="back-to-top"><img alt="Back to Top" src="~/images/gototop.png" /></a>
+    <div id="ttr_page" class="container">
+        <div id="ttr_content_and_sidebar_container">
+            <aside id="ttr_sidebar_left">
+                <div id="ttr_sidebar_left_margin">
+                    <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                    <div class="ttr_verticalmenu">
+                        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                        <div class="ttr_verticalmenu_header">
+                            <h3 class="ttr_verticalmenu_heading">
+                                Menú Principal
+                            </h3>
+                        </div>
+                        <div class="ttr_verticalmenu_content">
+                            <ul class="ttr_vmenu_items nav nav-pills nav-stacked">
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="~/Index.html" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Inicio</a>
+                                    <hr class="horiz_separator" />
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="~/personas/Index" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Clientes</a>
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="~/vehiculos/Index" class="ttr_vmenu_items_parent_link_active"><span class="menuchildicon"></span>Vehículos</a>
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="~/tipovehiculoes/Index" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Tarifas</a>
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="~/facturacions/Index" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Facturación</a>
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="#" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Configuración</a>
+                                </li>
+                                <li class="ttr_vmenu_items_parent dropdown">
+                                    <a href="#" class="ttr_vmenu_items_parent_link"><span class="menuchildicon"></span>Reportes</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ttr_sidebar_left_padding">
+                        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                    </div>
+                </div>
+            </aside>
+            <div id="ttr_content">
+                <div id="ttr_content_margin" class="container-fluid">
+                    <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                    <div class="ttr_Clientes_html_row0 row">
+                        <div class="post_column col-lg-12 col-md-3 col-sm-3 col-xs-3">
+                            <div class="ttr_Clientes_html_column00">
+                                <div class="html_content" style="font-family:Times New Roman;font-size:12px;">
+                                    <p style="line-height:16.86px;font-family:Times New Roman;font-size:12px;">
+                                        <br style="font-family:&quot;Trebuchet MS&quot;;font-size:12px;" />
+                                    </p>
+
+                                    @RenderBody();
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix visible-lg-block">
+                        </div>
+                    </div>
+                    <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                </div>
+            </div>
+            <aside id="ttr_sidebar_right">
+                <div id="ttr_sidebar_right_margin">
+                    <div class="ttr_sidebar_right_padding">
+                        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                        <div class="ttr_block">
+                            <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                            <div class=" ttr_block_header">
+                                <h1 class="ttr_block_heading">
+                                    Bienvenido
+                                </h1>
+                            </div>
+                            <div class="ttr_block_content">
+                                <div class="html_content" style="font-family:Times New Roman;font-size:12px;"><br style="font-family:Times New Roman;font-size:12px;" /><br style="font-family:Times New Roman;font-size:12px;" /><p style="margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><img src="~/images/303.png" style="width:217px;height:199px;font-family:Times New Roman;font-size:12px;" /></p></div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+                    </div>
+                </div>
+            </aside>
+            <div style="clear:both">
+            </div>
+        </div>
+        <div style="height:0px;width:0px;overflow:hidden;"></div>
+        <footer id="ttr_footer">
+            <div class="ttr_footer_bottom_footer">
+                <div class="ttr_footer_bottom_footer_inner">
+                    <div id="ttr_footer_designed_by_links">
+                        <a href="http://templatetoaster.com">
+                            World Parking
+                        </a>
+                        <span id="ttr_footer_designed_by">
+                            © 2018 Derechos Reservados
+                        </span>
+                    </div>
+                    <div class="ttr_footer_rss">
+                    </div>
+                    <a href="" class="ttr_footer_facebook">
+                    </a>
+                    <a href="" class="ttr_footer_linkedin">
+                    </a>
+                    <a href="" class="ttr_footer_twitter">
+                    </a>
+                    <a href="" class="~/images/ttr_footer_googleplus">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <div style="height:0px;width:0px;overflow:hidden;-webkit-margin-bottom-collapse: separate;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WorldParkingVol1.Models.facturacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Facturacion_Layout1.cshtml";
+}
+
+<h2>Modulo Facturacion</h2>
+<hr />
+<p>
+    <br />
+    @Html.ActionLink("Crear Factura", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_enrtada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_salida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetalleObservaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacturaPermanente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bahias.idBahias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vehiculos.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.personas.Nombre)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_enrtada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_salida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetalleObservaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaPermanente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bahias.idBahias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vehiculos.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personas.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Salida", "Edit", new { id=item.NumeroFactura }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.NumeroFactura }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.NumeroFactura })
+        </td>
+    </tr>
+}
+
+</table>

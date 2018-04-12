@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3d33699e5ea4cdc8f28f8179e990ba6" Name="Diagram1">
+        <EntityTypeShape EntityType="ParkingModel.bahias" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.colorvehiculo" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.documentos" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.facturacion" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.marcasvehiculo" Width="1.5" PointX="3.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.personas" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.roles" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.sexo" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.taifaperiodica" Width="1.5" PointX="1.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.tarifasminuto" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.telefonodetalle" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.tipobahia" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.tipodocumento" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.tipotelefono" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.tipovehiculo" Width="1.5" PointX="3.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.vehiculos" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.historicoactpersonas" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.historicofacturacion" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.historicotelefonos" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingModel.historicovehiculos" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="ParkingModel.bahias_IdTipoBahia" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.facturacion_IdBahia" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.vehiculos_IdColorVeh" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.FK_documentos_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.FK_Documentos_TipoDoc" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.facturacion_IdVehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.FK_facturacion_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.vehiculos_IdMarcaVeh" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.FK_personas_roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.FK_telefonodetalle_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.personas_CodSexo" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.tipovehiculo_IdTarifaVehPer" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.tipovehiculo_IdTarifaVeh" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.telefonodetalle_IdTipoTelefono" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingModel.vehiculos_IdTipoVeh" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WorldParkingVol1.Models.tipovehiculo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterTarifas_Layout1.cshtml";
+}
+
+<h2>Tarifas Aplicables</h2>
+<hr />
+<br />
+<p>
+    @Html.ActionLink("Ingresar Nueva Tarifa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taifaperiodica.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tarifasminuto.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taifaperiodica.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tarifasminuto.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idTipoVehiculo }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idTipoVehiculo }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idTipoVehiculo })
+        </td>
+    </tr>
+}
+
+</table>

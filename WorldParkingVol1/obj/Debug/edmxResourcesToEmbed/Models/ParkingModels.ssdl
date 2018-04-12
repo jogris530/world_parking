@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParkingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bahias">
+    <Key>
+      <PropertyRef Name="idBahias" />
+    </Key>
+    <Property Name="idBahias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoBahia" Type="int" Nullable="false" />
+    <Property Name="EstadoBahia" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="colorvehiculo">
+    <Key>
+      <PropertyRef Name="idColorVehiculo" />
+    </Key>
+    <Property Name="idColorVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorVehiculo" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="documentos">
+    <Key>
+      <PropertyRef Name="idDocumentos" />
+    </Key>
+    <Property Name="idDocumentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Persona" Type="int" Nullable="false" />
+    <Property Name="TipoDocumento" Type="int" Nullable="false" />
+    <Property Name="NoDocumento" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="facturacion">
+    <Key>
+      <PropertyRef Name="NumeroFactura" />
+    </Key>
+    <Property Name="NumeroFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdVehiculo" Type="int" Nullable="false" />
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="Fecha_enrtada" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_salida" Type="datetime" />
+    <Property Name="DetalleObservaciones" Type="varchar" MaxLength="1000" />
+    <Property Name="Bahia" Type="int" Nullable="false" />
+    <Property Name="FacturaPermanente" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marcasvehiculo">
+    <Key>
+      <PropertyRef Name="idMarcasVehiculo" />
+    </Key>
+    <Property Name="idMarcasVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarcasVehiculo" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="personas">
+    <Key>
+      <PropertyRef Name="idPersonas" />
+    </Key>
+    <Property Name="idPersonas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Rol" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="CodSexo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionRol" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sexo">
+    <Key>
+      <PropertyRef Name="idSexo" />
+    </Key>
+    <Property Name="idSexo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sexo" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="taifaperiodica">
+    <Key>
+      <PropertyRef Name="idTaifaPeriodica" />
+    </Key>
+    <Property Name="idTaifaPeriodica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ValorPleno" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tarifasminuto">
+    <Key>
+      <PropertyRef Name="idTarifasMin" />
+    </Key>
+    <Property Name="idTarifasMin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ValorMinuto" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="telefonodetalle">
+    <Key>
+      <PropertyRef Name="idTelefonoDetalle" />
+    </Key>
+    <Property Name="idTelefonoDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="TipoTelefono" Type="int" Nullable="false" />
+    <Property Name="NumeroTelefono" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipobahia">
+    <Key>
+      <PropertyRef Name="idTipoBahia" />
+    </Key>
+    <Property Name="idTipoBahia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipodocumento">
+    <Key>
+      <PropertyRef Name="idTipoDocumento" />
+    </Key>
+    <Property Name="idTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoDocumento" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipotelefono">
+    <Key>
+      <PropertyRef Name="idTipoTelefono" />
+    </Key>
+    <Property Name="idTipoTelefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipovehiculo">
+    <Key>
+      <PropertyRef Name="idTipoVehiculo" />
+    </Key>
+    <Property Name="idTipoVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="Tarifa" Type="int" Nullable="false" />
+    <Property Name="TarifaPeriodica" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vehiculos">
+    <Key>
+      <PropertyRef Name="idVehiculos" />
+    </Key>
+    <Property Name="idVehiculos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Color" Type="int" Nullable="false" />
+    <Property Name="Modelo" Type="int" Nullable="false" />
+    <Property Name="Marca" Type="int" Nullable="false" />
+    <Property Name="TipoVehiculo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="historicoactpersonas">
+    <Key>
+      <PropertyRef Name="idHistoricoActPersonas" />
+    </Key>
+    <Property Name="idHistoricoActPersonas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPersonas" Type="int" Nullable="false" />
+    <Property Name="FechaEdicion" Type="datetime" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Documento" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="TipoDocumento" Type="int" Nullable="false" />
+    <Property Name="Rol" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Sexo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="historicofacturacion">
+    <Key>
+      <PropertyRef Name="idHistoricoFacturacion" />
+    </Key>
+    <Property Name="idHistoricoFacturacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroFactura" Type="int" Nullable="false" />
+    <Property Name="IdVehiculo" Type="int" Nullable="false" />
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="FechaEntrada" Type="datetime" Nullable="false" />
+    <Property Name="FechaSalida" Type="datetime" Nullable="false" />
+    <Property Name="Bahia" Type="int" Nullable="false" />
+    <Property Name="FacturaPermanente" Type="int" Nullable="false" />
+    <Property Name="ValorPagado" Type="float" Nullable="false" />
+    <Property Name="FechaEdicion" Type="datetime" Nullable="false" />
+    <Property Name="DetalleObservaciones" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="historicotelefonos">
+    <Key>
+      <PropertyRef Name="idHistoricoTelefonos" />
+    </Key>
+    <Property Name="idHistoricoTelefonos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="FechaEdicion" Type="datetime" Nullable="false" />
+    <Property Name="TipoTelefono" Type="int" Nullable="false" />
+    <Property Name="NumeroTelefono" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FechaEdic" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="historicovehiculos">
+    <Key>
+      <PropertyRef Name="idHistoricoVehiculos" />
+    </Key>
+    <Property Name="idHistoricoVehiculos" Type="int" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Color" Type="int" Nullable="false" />
+    <Property Name="Modelo" Type="int" Nullable="false" />
+    <Property Name="Marca" Type="int" Nullable="false" />
+    <Property Name="TIpoVehiculo" Type="int" Nullable="false" />
+    <Property Name="FechaEdicion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="bahias$IdTipoBahia">
+    <End Role="tipobahia" Type="Self.tipobahia" Multiplicity="1" />
+    <End Role="bahias" Type="Self.bahias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipobahia">
+        <PropertyRef Name="idTipoBahia" />
+      </Principal>
+      <Dependent Role="bahias">
+        <PropertyRef Name="TipoBahia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="facturacion$IdBahia">
+    <End Role="bahias" Type="Self.bahias" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bahias">
+        <PropertyRef Name="idBahias" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="Bahia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="facturacion$IdVehiculo">
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculos">
+        <PropertyRef Name="idVehiculos" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="IdVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documentos_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="documentos" Type="Self.documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="Persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documentos_TipoDoc">
+    <End Role="tipodocumento" Type="Self.tipodocumento" Multiplicity="1" />
+    <End Role="documentos" Type="Self.documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipodocumento">
+        <PropertyRef Name="idTipoDocumento" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="TipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_facturacion_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personas_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="personas" Type="Self.personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="personas">
+        <PropertyRef Name="Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_telefonodetalle_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="telefonodetalle" Type="Self.telefonodetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="telefonodetalle">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="personas$CodSexo">
+    <End Role="sexo" Type="Self.sexo" Multiplicity="1" />
+    <End Role="personas" Type="Self.personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sexo">
+        <PropertyRef Name="idSexo" />
+      </Principal>
+      <Dependent Role="personas">
+        <PropertyRef Name="CodSexo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="telefonodetalle$IdTipoTelefono">
+    <End Role="tipotelefono" Type="Self.tipotelefono" Multiplicity="1" />
+    <End Role="telefonodetalle" Type="Self.telefonodetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipotelefono">
+        <PropertyRef Name="idTipoTelefono" />
+      </Principal>
+      <Dependent Role="telefonodetalle">
+        <PropertyRef Name="TipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipovehiculo$IdTarifaVeh">
+    <End Role="tarifasminuto" Type="Self.tarifasminuto" Multiplicity="1" />
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarifasminuto">
+        <PropertyRef Name="idTarifasMin" />
+      </Principal>
+      <Dependent Role="tipovehiculo">
+        <PropertyRef Name="Tarifa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipovehiculo$IdTarifaVehPer">
+    <End Role="taifaperiodica" Type="Self.taifaperiodica" Multiplicity="1" />
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taifaperiodica">
+        <PropertyRef Name="idTaifaPeriodica" />
+      </Principal>
+      <Dependent Role="tipovehiculo">
+        <PropertyRef Name="TarifaPeriodica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos$IdColorVeh">
+    <End Role="colorvehiculo" Type="Self.colorvehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colorvehiculo">
+        <PropertyRef Name="idColorVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos$IdMarcaVeh">
+    <End Role="marcasvehiculo" Type="Self.marcasvehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marcasvehiculo">
+        <PropertyRef Name="idMarcasVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="Marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos$IdTipoVeh">
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipovehiculo">
+        <PropertyRef Name="idTipoVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="TipoVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ParkingModelStoreContainer">
+    <EntitySet Name="bahias" EntityType="Self.bahias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="colorvehiculo" EntityType="Self.colorvehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="documentos" EntityType="Self.documentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="facturacion" EntityType="Self.facturacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marcasvehiculo" EntityType="Self.marcasvehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sexo" EntityType="Self.sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taifaperiodica" EntityType="Self.taifaperiodica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarifasminuto" EntityType="Self.tarifasminuto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telefonodetalle" EntityType="Self.telefonodetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipobahia" EntityType="Self.tipobahia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipodocumento" EntityType="Self.tipodocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipotelefono" EntityType="Self.tipotelefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipovehiculo" EntityType="Self.tipovehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehiculos" EntityType="Self.vehiculos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="historicoactpersonas" EntityType="Self.historicoactpersonas" Schema="His" store:Type="Tables" />
+    <EntitySet Name="historicofacturacion" EntityType="Self.historicofacturacion" Schema="His" store:Type="Tables" />
+    <EntitySet Name="historicotelefonos" EntityType="Self.historicotelefonos" Schema="His" store:Type="Tables" />
+    <EntitySet Name="historicovehiculos" EntityType="Self.historicovehiculos" Schema="His" store:Type="Tables" />
+    <AssociationSet Name="bahias$IdTipoBahia" Association="Self.bahias$IdTipoBahia">
+      <End Role="tipobahia" EntitySet="tipobahia" />
+      <End Role="bahias" EntitySet="bahias" />
+    </AssociationSet>
+    <AssociationSet Name="facturacion$IdBahia" Association="Self.facturacion$IdBahia">
+      <End Role="bahias" EntitySet="bahias" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="facturacion$IdVehiculo" Association="Self.facturacion$IdVehiculo">
+      <End Role="vehiculos" EntitySet="vehiculos" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documentos_personas" Association="Self.FK_documentos_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documentos_TipoDoc" Association="Self.FK_Documentos_TipoDoc">
+      <End Role="tipodocumento" EntitySet="tipodocumento" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_facturacion_personas" Association="Self.FK_facturacion_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personas_roles" Association="Self.FK_personas_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="personas" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_telefonodetalle_personas" Association="Self.FK_telefonodetalle_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="telefonodetalle" EntitySet="telefonodetalle" />
+    </AssociationSet>
+    <AssociationSet Name="personas$CodSexo" Association="Self.personas$CodSexo">
+      <End Role="sexo" EntitySet="sexo" />
+      <End Role="personas" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="telefonodetalle$IdTipoTelefono" Association="Self.telefonodetalle$IdTipoTelefono">
+      <End Role="tipotelefono" EntitySet="tipotelefono" />
+      <End Role="telefonodetalle" EntitySet="telefonodetalle" />
+    </AssociationSet>
+    <AssociationSet Name="tipovehiculo$IdTarifaVeh" Association="Self.tipovehiculo$IdTarifaVeh">
+      <End Role="tarifasminuto" EntitySet="tarifasminuto" />
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="tipovehiculo$IdTarifaVehPer" Association="Self.tipovehiculo$IdTarifaVehPer">
+      <End Role="taifaperiodica" EntitySet="taifaperiodica" />
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos$IdColorVeh" Association="Self.vehiculos$IdColorVeh">
+      <End Role="colorvehiculo" EntitySet="colorvehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos$IdMarcaVeh" Association="Self.vehiculos$IdMarcaVeh">
+      <End Role="marcasvehiculo" EntitySet="marcasvehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos$IdTipoVeh" Association="Self.vehiculos$IdTipoVeh">
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

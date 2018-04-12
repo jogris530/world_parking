@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WorldParkingVol1.Models.vehiculos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master_Vehiculos_Layout1.cshtml";
+}
+
+<h2>Lista de Vehiculos</h2>
+
+
+<hr />
+<br />
+<p>
+    @Html.ActionLink("Registrar Nuevo Vehiculo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colorvehiculo.ColorVehiculo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marcasvehiculo.MarcasVehiculo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipovehiculo1.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colorvehiculo.ColorVehiculo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marcasvehiculo.MarcasVehiculo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipovehiculo1.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Actualizar", "Edit", new { id=item.idVehiculos }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idVehiculos }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idVehiculos })
+        </td>
+    </tr>
+}
+
+</table>

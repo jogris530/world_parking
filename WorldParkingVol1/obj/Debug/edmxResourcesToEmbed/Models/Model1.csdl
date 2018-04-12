@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParkingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bahias">
+    <Key>
+      <PropertyRef Name="idBahias" />
+    </Key>
+    <Property Name="idBahias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoBahia" Type="Int32" Nullable="false" />
+    <Property Name="EstadoBahia" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tipobahia1" Relationship="Self.bahias_IdTipoBahia" FromRole="bahias" ToRole="tipobahia" />
+    <NavigationProperty Name="facturacion" Relationship="Self.facturacion_IdBahia" FromRole="bahias" ToRole="facturacion" />
+  </EntityType>
+  <EntityType Name="colorvehiculo">
+    <Key>
+      <PropertyRef Name="idColorVehiculo" />
+    </Key>
+    <Property Name="idColorVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorVehiculo1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="vehiculos" Relationship="Self.vehiculos_IdColorVeh" FromRole="colorvehiculo" ToRole="vehiculos" />
+  </EntityType>
+  <EntityType Name="documentos">
+    <Key>
+      <PropertyRef Name="idDocumentos" />
+    </Key>
+    <Property Name="idDocumentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Persona" Type="Int32" Nullable="false" />
+    <Property Name="TipoDocumento" Type="Int32" Nullable="false" />
+    <Property Name="NoDocumento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_documentos_personas" FromRole="documentos" ToRole="personas" />
+    <NavigationProperty Name="tipodocumento1" Relationship="Self.FK_Documentos_TipoDoc" FromRole="documentos" ToRole="tipodocumento" />
+  </EntityType>
+  <EntityType Name="facturacion">
+    <Key>
+      <PropertyRef Name="NumeroFactura" />
+    </Key>
+    <Property Name="NumeroFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehiculo" Type="Int32" Nullable="false" />
+    <Property Name="IdPersona" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_enrtada" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_salida" Type="DateTime" Precision="3" />
+    <Property Name="DetalleObservaciones" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Bahia" Type="Int32" Nullable="false" />
+    <Property Name="FacturaPermanente" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="bahias" Relationship="Self.facturacion_IdBahia" FromRole="facturacion" ToRole="bahias" />
+    <NavigationProperty Name="vehiculos" Relationship="Self.facturacion_IdVehiculo" FromRole="facturacion" ToRole="vehiculos" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_facturacion_personas" FromRole="facturacion" ToRole="personas" />
+  </EntityType>
+  <EntityType Name="marcasvehiculo">
+    <Key>
+      <PropertyRef Name="idMarcasVehiculo" />
+    </Key>
+    <Property Name="idMarcasVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarcasVehiculo1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="vehiculos" Relationship="Self.vehiculos_IdMarcaVeh" FromRole="marcasvehiculo" ToRole="vehiculos" />
+  </EntityType>
+  <EntityType Name="personas">
+    <Key>
+      <PropertyRef Name="idPersonas" />
+    </Key>
+    <Property Name="idPersonas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rol" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="CodSexo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="documentos" Relationship="Self.FK_documentos_personas" FromRole="personas" ToRole="documentos" />
+    <NavigationProperty Name="facturacion" Relationship="Self.FK_facturacion_personas" FromRole="personas" ToRole="facturacion" />
+    <NavigationProperty Name="telefonodetalle" Relationship="Self.FK_telefonodetalle_personas" FromRole="personas" ToRole="telefonodetalle" />
+    <NavigationProperty Name="sexo" Relationship="Self.personas_CodSexo" FromRole="personas" ToRole="sexo" />
+    <NavigationProperty Name="roles" Relationship="Self.personas_TipoRol" FromRole="personas" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionRol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.personas_TipoRol" FromRole="roles" ToRole="personas" />
+  </EntityType>
+  <EntityType Name="sexo">
+    <Key>
+      <PropertyRef Name="idSexo" />
+    </Key>
+    <Property Name="idSexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sexo1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.personas_CodSexo" FromRole="sexo" ToRole="personas" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="taifaperiodica">
+    <Key>
+      <PropertyRef Name="idTaifaPeriodica" />
+    </Key>
+    <Property Name="idTaifaPeriodica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorPleno" Type="Single" Nullable="false" />
+    <NavigationProperty Name="tipovehiculo" Relationship="Self.tipovehiculo_IdTarifaVehPer" FromRole="taifaperiodica" ToRole="tipovehiculo" />
+  </EntityType>
+  <EntityType Name="tarifasminuto">
+    <Key>
+      <PropertyRef Name="idTarifasMin" />
+    </Key>
+    <Property Name="idTarifasMin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorMinuto" Type="Single" Nullable="false" />
+    <NavigationProperty Name="tipovehiculo" Relationship="Self.tipovehiculo_IdTarifaVeh" FromRole="tarifasminuto" ToRole="tipovehiculo" />
+  </EntityType>
+  <EntityType Name="telefonodetalle">
+    <Key>
+      <PropertyRef Name="idTelefonoDetalle" />
+    </Key>
+    <Property Name="idTelefonoDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPersona" Type="Int32" Nullable="false" />
+    <Property Name="TipoTelefono" Type="Int32" Nullable="false" />
+    <Property Name="NumeroTelefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_telefonodetalle_personas" FromRole="telefonodetalle" ToRole="personas" />
+    <NavigationProperty Name="tipotelefono1" Relationship="Self.telefonodetalle_IdTipoTelefono" FromRole="telefonodetalle" ToRole="tipotelefono" />
+  </EntityType>
+  <EntityType Name="tipobahia">
+    <Key>
+      <PropertyRef Name="idTipoBahia" />
+    </Key>
+    <Property Name="idTipoBahia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="bahias" Relationship="Self.bahias_IdTipoBahia" FromRole="tipobahia" ToRole="bahias" />
+  </EntityType>
+  <EntityType Name="tipodocumento">
+    <Key>
+      <PropertyRef Name="idTipoDocumento" />
+    </Key>
+    <Property Name="idTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoDocumento1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="documentos" Relationship="Self.FK_Documentos_TipoDoc" FromRole="tipodocumento" ToRole="documentos" />
+  </EntityType>
+  <EntityType Name="tipotelefono">
+    <Key>
+      <PropertyRef Name="idTipoTelefono" />
+    </Key>
+    <Property Name="idTipoTelefono" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="telefonodetalle" Relationship="Self.telefonodetalle_IdTipoTelefono" FromRole="tipotelefono" ToRole="telefonodetalle" />
+  </EntityType>
+  <EntityType Name="tipovehiculo">
+    <Key>
+      <PropertyRef Name="idTipoVehiculo" />
+    </Key>
+    <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tarifa" Type="Int32" Nullable="false" />
+    <Property Name="TarifaPeriodica" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="taifaperiodica" Relationship="Self.tipovehiculo_IdTarifaVehPer" FromRole="tipovehiculo" ToRole="taifaperiodica" />
+    <NavigationProperty Name="tarifasminuto" Relationship="Self.tipovehiculo_IdTarifaVeh" FromRole="tipovehiculo" ToRole="tarifasminuto" />
+    <NavigationProperty Name="vehiculos" Relationship="Self.vehiculos_IdTipoVeh" FromRole="tipovehiculo" ToRole="vehiculos" />
+  </EntityType>
+  <EntityType Name="vehiculos">
+    <Key>
+      <PropertyRef Name="idVehiculos" />
+    </Key>
+    <Property Name="idVehiculos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Placa" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Color" Type="Int32" Nullable="false" />
+    <Property Name="Modelo" Type="Int32" Nullable="false" />
+    <Property Name="Marca" Type="Int32" Nullable="false" />
+    <Property Name="TipoVehiculo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="colorvehiculo" Relationship="Self.vehiculos_IdColorVeh" FromRole="vehiculos" ToRole="colorvehiculo" />
+    <NavigationProperty Name="facturacion" Relationship="Self.facturacion_IdVehiculo" FromRole="vehiculos" ToRole="facturacion" />
+    <NavigationProperty Name="marcasvehiculo" Relationship="Self.vehiculos_IdMarcaVeh" FromRole="vehiculos" ToRole="marcasvehiculo" />
+    <NavigationProperty Name="tipovehiculo1" Relationship="Self.vehiculos_IdTipoVeh" FromRole="vehiculos" ToRole="tipovehiculo" />
+  </EntityType>
+  <Association Name="bahias_IdTipoBahia">
+    <End Role="tipobahia" Type="Self.tipobahia" Multiplicity="1" />
+    <End Role="bahias" Type="Self.bahias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipobahia">
+        <PropertyRef Name="idTipoBahia" />
+      </Principal>
+      <Dependent Role="bahias">
+        <PropertyRef Name="TipoBahia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="facturacion_IdBahia">
+    <End Role="bahias" Type="Self.bahias" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bahias">
+        <PropertyRef Name="idBahias" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="Bahia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos_IdColorVeh">
+    <End Role="colorvehiculo" Type="Self.colorvehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colorvehiculo">
+        <PropertyRef Name="idColorVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documentos_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="documentos" Type="Self.documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="Persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documentos_TipoDoc">
+    <End Role="tipodocumento" Type="Self.tipodocumento" Multiplicity="1" />
+    <End Role="documentos" Type="Self.documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipodocumento">
+        <PropertyRef Name="idTipoDocumento" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="TipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="facturacion_IdVehiculo">
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculos">
+        <PropertyRef Name="idVehiculos" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="IdVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_facturacion_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="facturacion" Type="Self.facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="facturacion">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos_IdMarcaVeh">
+    <End Role="marcasvehiculo" Type="Self.marcasvehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marcasvehiculo">
+        <PropertyRef Name="idMarcasVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="Marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_telefonodetalle_personas">
+    <End Role="personas" Type="Self.personas" Multiplicity="1" />
+    <End Role="telefonodetalle" Type="Self.telefonodetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="telefonodetalle">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="personas_CodSexo">
+    <End Role="sexo" Type="Self.sexo" Multiplicity="1" />
+    <End Role="personas" Type="Self.personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sexo">
+        <PropertyRef Name="idSexo" />
+      </Principal>
+      <Dependent Role="personas">
+        <PropertyRef Name="CodSexo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="personas_TipoRol">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="personas" Type="Self.personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="personas">
+        <PropertyRef Name="Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipovehiculo_IdTarifaVehPer">
+    <End Role="taifaperiodica" Type="Self.taifaperiodica" Multiplicity="1" />
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taifaperiodica">
+        <PropertyRef Name="idTaifaPeriodica" />
+      </Principal>
+      <Dependent Role="tipovehiculo">
+        <PropertyRef Name="TarifaPeriodica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipovehiculo_IdTarifaVeh">
+    <End Role="tarifasminuto" Type="Self.tarifasminuto" Multiplicity="1" />
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarifasminuto">
+        <PropertyRef Name="idTarifasMin" />
+      </Principal>
+      <Dependent Role="tipovehiculo">
+        <PropertyRef Name="Tarifa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="telefonodetalle_IdTipoTelefono">
+    <End Role="tipotelefono" Type="Self.tipotelefono" Multiplicity="1" />
+    <End Role="telefonodetalle" Type="Self.telefonodetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipotelefono">
+        <PropertyRef Name="idTipoTelefono" />
+      </Principal>
+      <Dependent Role="telefonodetalle">
+        <PropertyRef Name="TipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vehiculos_IdTipoVeh">
+    <End Role="tipovehiculo" Type="Self.tipovehiculo" Multiplicity="1" />
+    <End Role="vehiculos" Type="Self.vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipovehiculo">
+        <PropertyRef Name="idTipoVehiculo" />
+      </Principal>
+      <Dependent Role="vehiculos">
+        <PropertyRef Name="TipoVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ParkingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bahias" EntityType="Self.bahias" />
+    <EntitySet Name="colorvehiculo" EntityType="Self.colorvehiculo" />
+    <EntitySet Name="documentos" EntityType="Self.documentos" />
+    <EntitySet Name="facturacion" EntityType="Self.facturacion" />
+    <EntitySet Name="marcasvehiculo" EntityType="Self.marcasvehiculo" />
+    <EntitySet Name="personas" EntityType="Self.personas" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="sexo" EntityType="Self.sexo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="taifaperiodica" EntityType="Self.taifaperiodica" />
+    <EntitySet Name="tarifasminuto" EntityType="Self.tarifasminuto" />
+    <EntitySet Name="telefonodetalle" EntityType="Self.telefonodetalle" />
+    <EntitySet Name="tipobahia" EntityType="Self.tipobahia" />
+    <EntitySet Name="tipodocumento" EntityType="Self.tipodocumento" />
+    <EntitySet Name="tipotelefono" EntityType="Self.tipotelefono" />
+    <EntitySet Name="tipovehiculo" EntityType="Self.tipovehiculo" />
+    <EntitySet Name="vehiculos" EntityType="Self.vehiculos" />
+    <AssociationSet Name="bahias_IdTipoBahia" Association="Self.bahias_IdTipoBahia">
+      <End Role="tipobahia" EntitySet="tipobahia" />
+      <End Role="bahias" EntitySet="bahias" />
+    </AssociationSet>
+    <AssociationSet Name="facturacion_IdBahia" Association="Self.facturacion_IdBahia">
+      <End Role="bahias" EntitySet="bahias" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos_IdColorVeh" Association="Self.vehiculos_IdColorVeh">
+      <End Role="colorvehiculo" EntitySet="colorvehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documentos_personas" Association="Self.FK_documentos_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documentos_TipoDoc" Association="Self.FK_Documentos_TipoDoc">
+      <End Role="tipodocumento" EntitySet="tipodocumento" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="facturacion_IdVehiculo" Association="Self.facturacion_IdVehiculo">
+      <End Role="vehiculos" EntitySet="vehiculos" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_facturacion_personas" Association="Self.FK_facturacion_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="facturacion" EntitySet="facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos_IdMarcaVeh" Association="Self.vehiculos_IdMarcaVeh">
+      <End Role="marcasvehiculo" EntitySet="marcasvehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_telefonodetalle_personas" Association="Self.FK_telefonodetalle_personas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="telefonodetalle" EntitySet="telefonodetalle" />
+    </AssociationSet>
+    <AssociationSet Name="personas_CodSexo" Association="Self.personas_CodSexo">
+      <End Role="sexo" EntitySet="sexo" />
+      <End Role="personas" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="personas_TipoRol" Association="Self.personas_TipoRol">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="personas" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="tipovehiculo_IdTarifaVehPer" Association="Self.tipovehiculo_IdTarifaVehPer">
+      <End Role="taifaperiodica" EntitySet="taifaperiodica" />
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="tipovehiculo_IdTarifaVeh" Association="Self.tipovehiculo_IdTarifaVeh">
+      <End Role="tarifasminuto" EntitySet="tarifasminuto" />
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="telefonodetalle_IdTipoTelefono" Association="Self.telefonodetalle_IdTipoTelefono">
+      <End Role="tipotelefono" EntitySet="tipotelefono" />
+      <End Role="telefonodetalle" EntitySet="telefonodetalle" />
+    </AssociationSet>
+    <AssociationSet Name="vehiculos_IdTipoVeh" Association="Self.vehiculos_IdTipoVeh">
+      <End Role="tipovehiculo" EntitySet="tipovehiculo" />
+      <End Role="vehiculos" EntitySet="vehiculos" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ParkingModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ParkingModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="personasdocumentos" Association="ParkingModel.personasdocumentos">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="documentospersonas" Association="ParkingModel.documentospersonas">
+      <End Role="personas" EntitySet="personas" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="personasdocumentos">
+    <End Type="ParkingModel.personas" Role="personas" Multiplicity="1" />
+    <End Type="ParkingModel.documentos" Role="documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personas">
+        <PropertyRef Name="idPersonas" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="personas_idPersonas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="documentospersonas">
+    <End Type="ParkingModel.personas" Role="personas" Multiplicity="*" />
+    <End Type="ParkingModel.documentos" Role="documentos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="documentos">
+        <PropertyRef Name="idDocumentos" />
+      </Principal>
+      <Dependent Role="personas">
+        <PropertyRef Name="documentos_idDocumentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
