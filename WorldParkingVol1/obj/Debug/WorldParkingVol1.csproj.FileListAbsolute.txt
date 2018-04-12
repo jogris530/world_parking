@@ -107,6 +107,5 @@ C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\bin\es\System.Web.Raz
 C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\bin\es\System.Web.WebPages.resources.dll
 C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\obj\Debug\WorldParkingVol1.csprojResolveAssemblyReference.cache
 C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\obj\Debug\WorldParkingVol1.dll
 C:\Users\KEVIN\Source\Repos\world_parking\WorldParkingVol1\obj\Debug\WorldParkingVol1.pdb
