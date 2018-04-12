@@ -14,6 +14,8 @@ namespace WorldParkingVol1.Controllers
     public class personasController : Controller
     {
         private ParkingEntities1 db = new ParkingEntities1();
+
+        // crud para procesos
         
         // GET: personas
         public ActionResult Index()
